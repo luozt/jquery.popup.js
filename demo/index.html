@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../_popup.css">
+    <style>
+    .g-modal{width: 400px; background: red;}
+    </style>
+  </head>
+  <body>
+    <div class="g-modal md-modal-instance">
+      <p class="l-desc">你说呢</p>
+    </div>
+    <button id="btn">打开modal</button>
+    <script src="http://libs.useso.com/js/jquery/1.10.0/jquery.js"></script>
+    <script src="../jquery.popup.js"></script>
+    <script>
+    (function() {
+      var $btn, $desc, $modal;
+
+      $modal = $(".g-modal");
+
+      $desc = $modal.find(".l-desc");
+
+      $btn = $("#btn");
+
+      var popupApi = $.popup({
+        modal: $modal,
+        closeBtn: $desc,
+        openBtn: $btn,
+        effect: 1,
+        maskClose: true,
+        onShown: function() {
+          return console.log("onShown");
+        },
+        onHidden: function() {
+          return console.log("onHidden");
+        }
+      });
+
+    }).call(this);
+
+    </script>
+  </body>
+</html>
